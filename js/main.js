@@ -1,15 +1,12 @@
 function salvar(form){
-    console.log($('#tbody').rows);
     let dados_linha = {}
     for(let elemento of form.elements){
         dados_linha[elemento.id] = elemento.value;
     }
     let cabecalho = get_cabecalho();
-    console.log(cabecalho);
     let ultimo_id = get_ultimo_id();
-    let tabela = document.getElementById('table');
-    let ultima_linha = get_ultima_linha(tabela);
-    let linha = tabela.insertRow(ultima_linha+1);
+    let tabela = document.getElementById('table').getElementsByTagName('tbody')[0];
+    let linha = tabela.insertRow(tabela.rows.length);
 
     for(let index in cabecalho){
         let coluna = cabecalho[index]
@@ -19,7 +16,6 @@ function salvar(form){
         let obj_coluna = linha.insertCell(index);
         obj_coluna.title = coluna;
 
-        console.log(coluna);
         if(coluna === 'check'){
             obj_coluna.innerHTML = '<input type="checkbox">';
         }else if(coluna === 'id'){
@@ -55,9 +51,6 @@ function get_cabecalho(){
 }
 
 function get_ultimo_id(){
-    return Number.parseInt($('#table tbody tr:last td[title="id"]').text());
-}
-
-function get_ultima_linha(tabela){
-    return tabela.querySelectorAll('tbody>tr').length;
+    let ultimo_id = Number.parseInt($('#table tbody tr:last td[title="id"]').text());
+    return ultimo_id ? ultimo_id : 0;
 }
