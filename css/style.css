@@ -1,0 +1,9 @@
+.row>*{
+    margin-top: 10px;
+    margin-bottom: unset;
+}
+
+.font{
+    font-weight: bold;
+    font-family: Arial;
+}
