@@ -6,38 +6,30 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/main.js"></script>
 
 </head>
 <body class="container">
-    <form id="form" class="row justify-content-center">
+    <form id="form" class="row justify-content-center" onsubmit="event.preventDefault()">
 
         <div id="dados" class="row">
-            <p class="font">Dados</p>
+            <h4 class="font">Dados</h4>
 
             <div class="form-group col-6">
                 <label for="nome">Nome</label>
-                <input id="nome" type="text" class="form-control" placeholder="Nome">
+                <input id="nome" type="text" class="form-control" placeholder="Nome" required>
             </div>
             <div class="form-group col-6">
                 <label for="sobrenome">Sobrenome</label>
-                <input id="sobrenome" type="text" class="form-control" placeholder="Sobrenome">
+                <input id="sobrenome" type="text" class="form-control" placeholder="Sobrenome" required>
             </div>
         </div>
 
         <div id="endereco" class="row">
-            <p class="font">Endereço</p>
+            <h4 class="font">Endereço</h4>
 
             <div class="form-group col-3">
                 <label for="cep">CEP</label>
-                <input id="cep" type="number" class="form-control" placeholder="CEP">
+                <input id="cep" type="number" class="form-control" placeholder="CEP" required onchange="buscar_cep(this.value)">
             </div>
             <div class="form-group col-6">
                 <label for="rua">Rua</label>
@@ -60,7 +52,7 @@
                 <input id="estado" type="text" class="form-control" placeholder="Estado">
             </div>
             <div class="text-end">
-                <button type="button" onclick="salvar(this.form)" class="btn btn-primary">Salvar</button>
+                <button onclick="salvar(this.form)" class="btn btn-primary">Salvar</button>
             </div>
         </div>
     </form>
@@ -89,5 +81,14 @@
             <tbody></tbody>
         </table>
 </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

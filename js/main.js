@@ -3,6 +3,7 @@ function salvar(form){
     for(let elemento of form.elements){
         dados_linha[elemento.id] = elemento.value;
     }
+
     let cabecalho = get_cabecalho();
     let ultimo_id = get_ultimo_id();
     let tabela = document.getElementById('table').getElementsByTagName('tbody')[0];
@@ -53,4 +54,20 @@ function get_cabecalho(){
 function get_ultimo_id(){
     let ultimo_id = Number.parseInt($('#table tbody tr:last td[title="id"]').text());
     return ultimo_id ? ultimo_id : 0;
+}
+
+function buscar_cep(cep){
+    $.ajax({
+        type: "GET",
+        url: `https://viacep.com.br/ws/${cep}/json/`,
+        success: function (response) {
+            $('#rua').val(response.logradouro);
+            $('#bairro').val(response.bairro);
+            $('#cidade').val(response.localidade);
+            $('#estado').val(response.uf);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
 }
