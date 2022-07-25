@@ -26,19 +26,19 @@ function salvar(form){
             obj_coluna.innerText = dados_linha[coluna];
         }
     }
-    form.reset()
+    form.reset();
 }
 
 function toggle_checkbox(checkbox){
     document.querySelectorAll('#table input[type=checkbox]').forEach((input)=>{
         input.checked = checkbox.checked;
-    })
+    });
 }
 
 function remover_selecionados(){
     $('#table tbody input[type=checkbox]:checked').each((index, input)=>{
         $(input).closest('tr').remove();
-    })
+    });
 }
 
 function get_cabecalho(){
@@ -70,7 +70,7 @@ function buscar_cep(cep){
         error: function (error) {
             console.log(error);
         }
-    })
+    });
 }
 
 function toggle_remover(){
@@ -81,7 +81,7 @@ function toggle_remover(){
         if(input.checked){
             desabilitar = false;
         }
-    })
+    });
 
     if(desabilitar){
         btn_remover.setAttribute('disabled', '');
@@ -99,7 +99,8 @@ function toggle_check_all(){
         if(!input.checked){
             desabilitar = false;
         }
-    })
+    });
+
     if(lista_checkboxes.length === 0){
         desabilitar = false;
     }
