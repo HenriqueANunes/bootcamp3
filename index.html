@@ -9,7 +9,7 @@
 
 </head>
 <body class="container">
-    <form id="form" class="row justify-content-center" onsubmit="event.preventDefault()">
+    <form id="form" class="row justify-content-center" onsubmit="event.preventDefault(); salvar(this)">
 
         <div id="dados" class="row">
             <h4 class="font">Dados</h4>
@@ -52,7 +52,7 @@
                 <input id="estado" type="text" class="form-control" placeholder="Estado">
             </div>
             <div class="text-end">
-                <button onclick="salvar(this.form)" class="btn btn-primary">Salvar</button>
+                <button class="btn btn-primary">Salvar</button>
             </div>
         </div>
     </form>
@@ -60,13 +60,13 @@
     <hr>
 
     <div class="col-2">
-        <button type="button" onclick="remover_selecionados()" class="btn btn-danger">Remover selecionados</button>
+        <button id="remover" type="button" onclick="remover_selecionados(); toggle_remover(); toggle_check_all()" disabled class="btn btn-danger">Remover selecionados</button>
     </div>
     <div class="table-responsive">
         <table id="table" class="table">
             <thead>
                 <tr>
-                    <th scope="col" title="check"><input onchange="toggle_chebox(this)" type="checkbox"></th>
+                    <th scope="col" title="check"><input id="check_all" onchange="toggle_checkbox(this); toggle_remover()" type="checkbox"></th>
                     <th scope="col" title="id">ID</th>
                     <th scope="col" title="nome">Nome</th>
                     <th scope="col" title="sobrenome">Sobrenome</th>
